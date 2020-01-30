@@ -28,11 +28,27 @@ function divide(a, b) {
 	});
 }
 
-sum(100, 200)
+
+sum(10, 30)
 .then(function(result){
 	console.log(result);
+	return multi(50, result);
+})
+.then(function(result2){
+	console.log(result2);
+	return divide(20, result2);
+})
+.then(function(result3) {
+	console.log(result3);
 })
 .catch(function(err) {
 	console.log(err);
 });
+
+(async function(){
+	var result = await sum(10, 30);
+	var result2 = await multi(50, result);
+	var result3 = await divide(20, result2);
+	console.log(result, result2, result3);
+})();
 </script>

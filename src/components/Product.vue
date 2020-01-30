@@ -9,8 +9,19 @@
 </template>
 
 <script>
-export default {
+import axios from 'axios';
 
+export default {
+	name: "Product",
+	data() {
+		return {
+			city: []
+		}
+	},
+	async created() {
+		var res = await axios.get("/json/products.json");
+		this.city = res.data.products;
+	}
 }
 </script>
 

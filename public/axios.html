@@ -1,0 +1,22 @@
+<script src="./js/axios.min.js"></script>
+<script>
+var appid = '02efdd64bdc14b279bc91d9247db4722';
+var dailyURL = 'https://api.openweathermap.org/data/2.5/weather';
+var daysURL = 'https://api.openweathermap.org/data/2.5/forecast';
+var params = {
+	appid: appid,
+	id: 1835848,
+	units: "metric"
+};
+
+(async function(){
+	var result = await axios.get(dailyURL, {params: params});
+	console.log(result);
+})();
+
+/*
+axios.get(dailyURL, {params: params}).then(function(res){
+	console.log(res);
+});
+*/
+</script>
