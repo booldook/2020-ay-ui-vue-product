@@ -2,8 +2,8 @@
   <div id="app">
     <nav-bar />
     <div class="container">
-      <search-bar v-bind:query="query" v-on:@submit="onSubmit" />
-      <product v-bind:query="query" />
+      <search-bar v-bind:query="query" v-on:@submit="onSubmit" v-on:@reset="onSubmit" />
+      <product v-show="query.length" v-bind:query="query" />
     </div>
   </div>
 </template>

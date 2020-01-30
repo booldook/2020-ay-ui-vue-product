@@ -1,9 +1,9 @@
 <template>
 	<div class="prd-wrap">
-		<div class="prd">
-			<img src="../assets/img/p1.jpg" alt="상품" class="w-100">
-			<div class="title">PRODUCT</div>
-			<div class="price">$25.00</div>
+		<div class="prd" v-for="v in prds" v-bind:key="v.id">
+			<img v-bind:src="`/img/${v.src}`" alt="상품" class="w-100">
+			<div class="title">{{v.title}}</div>
+			<div class="price">{{v.price}}</div>
 		</div>
 	</div>
 </template>

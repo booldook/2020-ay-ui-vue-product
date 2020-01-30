@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<div id="wrap"></div>
+
+
+	<script>
+	var	users = ['홍길동', '홍길순', '홍길영'];
+	var html = '';
+	// for(var i=0; i< users.length; i++) {
+	// for(var i in users) {
+	for(var v of users) {
+		html += `
+		<div class="user">
+			<h2 class="name">${v}</h2>
+		</div>`;
+	}
+	//$("#wrap").append(html);
+	document.querySelector("#wrap").innerHTML = html;
+	</script>
+</body>
+</html>

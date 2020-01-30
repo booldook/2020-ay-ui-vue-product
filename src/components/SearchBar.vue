@@ -20,6 +20,7 @@ export default {
 		},
 		onReset() {
 			this.inputQuery = '';
+			this.$emit('@reset', this.inputQuery);
 		}
 	}
 }
