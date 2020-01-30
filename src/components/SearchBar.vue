@@ -1,6 +1,6 @@
 <template>
 	<form v-on:submit.prevent="onSubmit" id="search-form" class="position-relative">
-		<input v-model="query" type="text" id="query" class="form-control" placeholder="검색어를 입력하세요.">
+		<input v-model="query" type="text" id="query" class="form-control" placeholder="검색어를 입력하세요." autofocus>
 		<i v-on:click="onReset" v-show="query.length" id="btReset" class="fa fa-times-circle"></i>
 	</form>
 </template>
