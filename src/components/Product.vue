@@ -13,14 +13,20 @@ import axios from 'axios';
 
 export default {
 	name: "Product",
+	props: ['query'],
 	data() {
 		return {
-			city: []
+			prds: []
 		}
 	},
-	async created() {
-		var res = await axios.get("/json/products.json");
-		this.city = res.data.products;
+	watch: {
+		query: async function(newValue, oldValue) {
+			var res = await axios.get("/json/products.json");
+			this.prds = res.data.products;
+		}
+	},
+	created() {
+		
 	}
 }
 </script>

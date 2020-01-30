@@ -2,8 +2,8 @@
   <div id="app">
     <nav-bar />
     <div class="container">
-      <search-bar />
-      <product />
+      <search-bar v-bind:query="query" v-on:@submit="onSubmit" />
+      <product v-bind:query="query" />
     </div>
   </div>
 </template>
@@ -15,10 +15,20 @@ import Product from './components/Product.vue';
 
 export default {
   name: 'app',
+  data() {
+    return {
+      query: ''
+    }
+  },
   components: {
     'search-bar': SearchBar,
     'nav-bar': NavBar,
     'product': Product,
+  },
+  methods: {
+    onSubmit(value) {
+      this.query = value;
+    }
   }
 }
 </script>

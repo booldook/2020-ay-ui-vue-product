@@ -1,24 +1,25 @@
 <template>
 	<form v-on:submit.prevent="onSubmit" id="search-form" class="position-relative">
-		<input v-model="query" type="text" id="query" class="form-control" placeholder="검색어를 입력하세요." autofocus>
-		<i v-on:click="onReset" v-show="query.length" id="btReset" class="fa fa-times-circle"></i>
+		<input v-model="inputQuery" type="text" id="query" class="form-control" placeholder="검색어를 입력하세요." autofocus>
+		<i v-on:click="onReset" v-show="inputQuery.length" id="btReset" class="fa fa-times-circle"></i>
 	</form>
 </template>
 
 <script>
 export default {
 	name: "search-bar",
+	props: ['query'],
 	data() {
 		return {
-			query: ""
+			inputQuery: ""
 		}
 	},
 	methods: {
 		onSubmit() {
-
+			this.$emit('@submit', this.inputQuery);
 		},
 		onReset() {
-			this.query = '';
+			this.inputQuery = '';
 		}
 	}
 }
