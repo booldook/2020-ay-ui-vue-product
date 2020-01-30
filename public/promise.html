@@ -1,38 +1,38 @@
 <script>
-function sum(a, b, cb) {
-	var c = a + b;
-	setTimeout(function(){
-		cb(c);
-	}, 0);
-}
-
-function multi(a, b, cb) {
-	var c = a * b;
-	setTimeout(function(){
-		cb(c);
-	}, 0);
-}
-
-function divide(a, b, cb) {
-	var c = a / b;
-	setTimeout(function(){
-		cb(c);
-	}, 0);
-}
-
-console.log("SUM 하기 전");
-sum(10, 20, function(v){
-	console.log("10 과 20의 합은 " + v + "입니다.");
-	multi(30, v, function(v2) {
-		console.log("30 과 " + v + "의 곱은 " + v2 + "입니다.");
-		divide(50, v2, function(v3) {
-			console.log("50 과 " + v2 + "의 나누기는 " + v3 + "입니다.");
-		});
+function sum(a, b) {
+	return new Promise(function(resolve, reject) {
+		setTimeout(function(){
+			var c = a + b;
+			var num = Math.floor(Math.random()*2);
+			if(num) resolve(c);
+			else reject("구글이 죽었어요");
+		}, 0);
 	});
+}
+
+function multi(a, b) {
+	return new Promise(function(resolve, reject) {
+		setTimeout(function(){
+			var c = a * b;
+			resolve(c);
+		}, 0);
+	});
+}
+
+function divide(a, b) {
+	return new Promise(function(resolve, reject) {
+		setTimeout(function(){
+			var c = a / b;
+			resolve(c);
+		}, 0);
+	});
+}
+
+sum(100, 200)
+.then(function(result){
+	console.log(result);
+})
+.catch(function(err) {
+	console.log(err);
 });
-console.log("SUM 하고난 후");
-
-
-// ES6
-// Promise !!!!!
 </script>
